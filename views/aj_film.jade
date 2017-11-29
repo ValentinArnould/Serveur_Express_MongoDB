@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    p ajouter un film
+
+    form(name="ajouter", method="post", action="/aj_film/ajout")
+        span.label Title
+            input(type="text", name="title")
+        span.label Contenu
+            input(type="text", name="content")
+        input(type="submit", value="ajouter")

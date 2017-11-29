@@ -1,0 +1,11 @@
+extends layout
+
+block content
+    h1= title
+    p supprimer un film
+
+    form(name="supprimer", method="post", action="/sup_film/suppr")
+        select(name="movie")
+            each movie in filmDB
+                option(value="#{movie._id}") #{movie.title}
+        input(type="submit", value="supprimer")

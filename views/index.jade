@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  h1= title
+
+  form(name="voir_un_film", method="post", action="/film")
+    p voir l'affiche d'un film
+    select(name="movie")
+      each mov in filmDB
+        option(value="#{mov._id}") #{mov.title}
+    input(type="submit", value="voir")
+
+  form(name="ajouter_un_film", method="get", action="/aj_film")
+    input(type="submit", value="ajouter")
+
+  form(name="supprimer_un_film", method="get", action="/sup_film")
+    input(type="submit", value="supprimer")
+
+  form(name="update_film", method="post", action="/update")
+      select(name="movie")
+        each film_up in filmDB
+          option(value="#{film_up._id}") #{film_up.title}
+      input(type="submit" value="update")
